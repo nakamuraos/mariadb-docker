@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  db:
+    image: mariadb
+    container_name: mariadb
+    hostname: mariadb
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    volumes:
+      - ./init-db:/docker-entrypoint-initdb.d
+      - ./my.cnf:/etc/mysql/mariadb.conf.d/my.cnf
